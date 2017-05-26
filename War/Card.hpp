@@ -12,15 +12,16 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+
 class Card
 {
 private:
-    int value;
-    std::string name;
+    int value;//value of the cod
+    std::string name; //the card's suit
 public:
-    Card(int val, std::string str);
-    int getVal();
-    std::string toString();
-    void printCard();
+    Card(int val, std::string str); //Card Constructor
+    int getVal(); //value of the card
+    std::string toString(); // The card's description
+    void printCard(); //print out of the card
 };
 #endif /* Card_hpp */

@@ -10,40 +10,46 @@
 #include <iomanip>
 #include "Deck.hpp"
 
-int player = 0;
-int computer = 0;
-void war(Deck deck);
-int main(int argc, const char * argv[]) {
-    Deck deck;
+int player = 0; // the player's score
+int computer = 0; // the computer's score
+void war(Deck deck); //main game method
+
+/*
+ * Driver Method
+ */
+int main(int argc, const char * argv[])
+{
+    Deck deck; // main deck of the game
     bool isRunning = true;
     std::cout<<"Welcome to War!!!"<<std::endl;
     while(isRunning)
     {
         int option = 0;
+        //main menu
         std::cout<<"1)Shuffle Deck"<<std::endl;
         std::cout<<"2)View Deck"<<std::endl;
         std::cout<<"3)Go to War"<<std::endl;
         std::cout<<"4)View Score"<<std::endl;
         std::cout<<"5)Exit"<<std::endl;
         std::cin>>option;
-        if(option == 1)
+        if(option == 1) //1) Shuffle Deck
         {
             std::cout<<"Shuffling...";
             deck.shuffle();
             std::cout<<"Done!"<<std::endl;
         }
-        else if(option == 2)
+        else if(option == 2) // 2) View Deck
         {
             deck.displayPrimary();
             std::cout<<"-Card Count-"<<std::endl;
             deck.count();
         }
-        else if(option == 3)
+        else if(option == 3) // 3) Go to war
         {
             std::cout<<"Let's go to War!!!"<<std::endl;
             war(deck);
         }
-        else if(option == 4)
+        else if(option == 4) // 4) View Score
         {
             std::cout<<"Score:"<<std::endl;
             std::cout<<"-------------------"<<std::endl;
@@ -51,7 +57,7 @@ int main(int argc, const char * argv[]) {
             std::cout<<"Computer: "<<std::right<<std::setw(9)<<computer<<std::endl;
             std::cout<<std::endl;
         }
-        else if(option == 5)
+        else if(option == 5) // 5) Exit
         {
             std::cout<<"Exiting...Done!"<<std::endl;
             isRunning = false;
@@ -64,13 +70,16 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 
+/*
+ * Game method with a simple rule: Higher card wins
+ */
 void war(Deck deck)
 {
     bool isRunning = true;
     while(isRunning)
     {
         std::cout<<deck.getSize()<<std::endl;
-        if(deck.getSize() == 0)
+        if(deck.getSize() == 0) //Display final score once the primary deck size has reached 0
         {
             std::cout<<"Game Over!!!\n"<<std::endl;
             std::cout<<"Final Score:"<<std::endl;
@@ -85,29 +94,32 @@ void war(Deck deck)
         {
             std::string option = "";
             std::cout<<"Your turn..."<<std::endl;
-            Card playerCard = deck.deal();
+            Card playerCard = deck.deal(); //Player's Card
             playerCard.printCard();
             std::cout<<"My turn..."<<std::endl;
-            Card computerCard = deck.deal();
+            Card computerCard = deck.deal(); //Computer's card
             computerCard.printCard();
-            if(playerCard.getVal() > computerCard.getVal())
+            if(playerCard.getVal() > computerCard.getVal()) //If player's card has a higher value, the player receives a point
             {
                 std::cout<<"You won this round!!!"<<std::endl;
                 player++;
             }
-            else if(playerCard.getVal() < computerCard.getVal())
+            else if(playerCard.getVal() < computerCard.getVal()) //If computer's card has a higher value, the computer receives a point
             {
                 std::cout<<"I won this round!!!"<<std::endl;
                 computer++;
             }
-            else
+            else //Tie, no one receives a point
             {
                 std::cout<<"It's a tie"<<std::endl;
             }
+            //Display Score
             std::cout<<"\nScore:"<<std::endl;
             std::cout<<"-------------------"<<std::endl;
             std::cout<<"You: "<<std::right<<std::setw(14)<<player<<std::endl;
             std::cout<<"Computer: "<<std::right<<std::setw(9)<<computer<<std::endl;
+            
+            //Coninue playing?
             std::cout<<"-Continue?- Yes or No  ";
             std::cin>>option;
             if(option == "Yes" || option == "yes" || option == "Y" || option == "y" || option == "1")

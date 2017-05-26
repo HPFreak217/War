@@ -11,6 +11,10 @@
 #include <algorithm>    // std::shuffle
 #include <random>       // std::default_random_engine
 #include <chrono>       // std::chrono::system_clock
+
+/*
+ * Default constructor that creates the primary deck of cards
+ */
 Deck::Deck()
 {
     for(int i = 0; i < 4; i++)
@@ -41,15 +45,22 @@ Deck::Deck()
     }
 }
 
+/*
+ * Method that loops through the usedCards vector and adds each item back into the primary deck
+ */
 void Deck::recreate()
 {
     for(Card temp: usedCards)
     {
-        primaryDeck.push_back(temp);
+        primaryDeck.push_back(temp);//add back to primary deck
     }
-    shuffle();
+    usedCards.clear();// clear the unused deck
+    shuffle();// shuffle the primary deck
 }
 
+/*
+ * Method that removes a card from the primaryDeck to the used deck
+ */
 Card Deck::deal()
 {
     Card temp(0,"T");
@@ -66,12 +77,18 @@ Card Deck::deal()
     }
 }
 
+/*
+ * Method that returns the size of the primary deck
+ */
 int Deck::getSize()
 {
     int size = (int) (primaryDeck.size());
     return size;
 }
 
+/*
+ * Method that shuffles the contents of primaryDeck
+ */
 void Deck::shuffle()
 {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
@@ -79,6 +96,9 @@ void Deck::shuffle()
     std::shuffle (primaryDeck.begin(), primaryDeck .end(), std::default_random_engine(seed));
 }
 
+/*
+ * Method that loops the contents of the primary deck and print out the visual representation of the card
+ */
 void Deck::displayPrimary()
 {
     for(Card i : primaryDeck)
@@ -87,6 +107,9 @@ void Deck::displayPrimary()
     }
 }
 
+/*
+ * Method that counts each card and places the amount in each category
+ */
 void Deck::count()
 {
     int one = 0;

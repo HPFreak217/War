@@ -9,16 +9,27 @@
 #include "Card.hpp"
 #include <iostream>
 #include <sstream>
+
+/*
+ * Card Constructor that sets up the card's main attributes
+ */
 Card::Card(int val, std::string str)
 {
     value = val;
-    name = str;
+    name = str; //the card's suit
 }
 
+/*
+ * Accessor method that returns the value of the card
+ */
 int Card::getVal()
 {
     return value;
 }
+
+/*
+ * Method that returns the string value of the card by concatenating the card's value and its suit
+ */
 std::string Card::toString()
 {
     std::ostringstream os;
@@ -117,6 +128,11 @@ std::string Card::toString()
     return os.str();
 }
 
+
+/*
+ * Method that returns a visual representation of the card based of its suit and its value
+ * Also prints out the concatenated string value of the card
+ */
 void Card::printCard()
 {
     if(name == "H")
