@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		745895F51ED4C38700011B15 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 745895F41ED4C38700011B15 /* main.cpp */; };
+		745895FD1ED4C40F00011B15 /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 745895FB1ED4C40F00011B15 /* Card.cpp */; };
+		745896001ED4D72800011B15 /* Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 745895FE1ED4D72800011B15 /* Deck.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,10 @@
 /* Begin PBXFileReference section */
 		745895F11ED4C38700011B15 /* War */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = War; sourceTree = BUILT_PRODUCTS_DIR; };
 		745895F41ED4C38700011B15 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		745895FB1ED4C40F00011B15 /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
+		745895FC1ED4C40F00011B15 /* Card.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Card.hpp; sourceTree = "<group>"; };
+		745895FE1ED4D72800011B15 /* Deck.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Deck.cpp; sourceTree = "<group>"; };
+		745895FF1ED4D72800011B15 /* Deck.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Deck.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				745895F41ED4C38700011B15 /* main.cpp */,
+				745895FE1ED4D72800011B15 /* Deck.cpp */,
+				745895FF1ED4D72800011B15 /* Deck.hpp */,
+				745895FB1ED4C40F00011B15 /* Card.cpp */,
+				745895FC1ED4C40F00011B15 /* Card.hpp */,
 			);
 			path = War;
 			sourceTree = "<group>";
@@ -120,7 +130,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				745896001ED4D72800011B15 /* Deck.cpp in Sources */,
 				745895F51ED4C38700011B15 /* main.cpp in Sources */,
+				745895FD1ED4C40F00011B15 /* Card.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
